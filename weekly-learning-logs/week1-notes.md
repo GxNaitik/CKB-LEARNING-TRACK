@@ -2,6 +2,9 @@
 
 **Date:** 16th Oct – 23rd Oct, 2025
 
+## Task Completed
+<img src=""C:\Users\Naitik\Pictures\Screenshots\Screenshot 2025-10-12 215501.png"" alt="Description" style="display: block; margin-left: auto; margin-right: auto; width: 50%;" />
+
 ## What I Learned
 
 - Got introduced to the Nervos Blockchain and CKB.
@@ -9,7 +12,6 @@
   - L1 Security and decentralization.
   - L2 Making transactions faster and scalable.
 - Learned about CKBytes (CKB) — Nervos’ native token for storage and transaction fees.
-- Began coding on Nervos using Rust, JavaScript, and C in the CKB-VM.
 - Explored NC-MAX, Nervos’ enhanced Proof of Work for secure and efficient consensus.
 ## Resources I Used
 
