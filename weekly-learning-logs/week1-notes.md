@@ -4,14 +4,13 @@
 
 ## What I Learned
 
-- Got introduced to the Nervos Blockchain and the Common Knowledge Base (CKB), which acts as the core trust layer.
-- Learned how Nervos uses a multi-layer setup to balance things like security, scalability, and decentralization:
-  - Layer 1 takes care of security and decentralization.
-  - Layer 2 focuses on making transactions faster and scalable.
-- Found out about CKBytes, the Nervos native token, which basically represents data storage space and also pays for transaction fees.
-- Started exploring programming on Nervos with languages like Rust, JavaScript, and C using the CKB-VM environment.
-- Understood how Nervos uses an improved Proof of Work consensus called NC-MAX to keep the network secure and efficient.
-
+- Got introduced to the Nervos Blockchain and CKB.
+- Learned how Nervos uses a multi-layer setup:
+  - L1 Security and decentralization.
+  - L2 Making transactions faster and scalable.
+- Learned about CKBytes (CKB) — Nervos’ native token for storage and transaction fees.
+- Began coding on Nervos using Rust, JavaScript, and C in the CKB-VM.
+- Explored NC-MAX, Nervos’ enhanced Proof of Work for secure and efficient consensus.
 ## Resources I Used
 
 - [How CKB Works](https://docs.nervos.org/docs/getting-started/how-ckb-works)
