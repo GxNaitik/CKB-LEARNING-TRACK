@@ -3,8 +3,15 @@
 **Date:** 16th Oct – 23rd Oct, 2025
 
 ## Task Completed
-<img src=""![Uploading Screenshot 2025-10-12 215501.png…]()
-"" alt="Description" style="display: block; margin-left: auto; margin-right: auto; width: 50%;" />
+<p align="left">
+  <table>
+    <tr>
+      <td style="border: 2px solid #555; padding: 5px;">
+        <img width="1920" height="1080" alt="Screenshot 2025-10-12 215501" src="https://github.com/user-attachments/assets/82b2ef62-b753-4fc3-a2bd-59b3eb1c2952" alt="Description" style="display:block;margin:auto;width:75%;"/>
+      </td>
+    </tr>
+  </table>
+</p>
 
 ## What I Learned
 
