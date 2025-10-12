@@ -3,7 +3,7 @@
 **Date:** 16th Oct – 23rd Oct, 2025
 
 ## Task Completed
-<img src=""C:\Users\Naitik\Pictures\Screenshots\Screenshot 2025-10-12 215501.png"" alt="Description" style="display: block; margin-left: auto; margin-right: auto; width: 50%;" />
+<img src=""C:/Users/Naitik/Pictures/Screenshots/Screenshot 2025-10-12 215501.png"" alt="Description" style="display: block; margin-left: auto; margin-right: auto; width: 50%;" />
 
 ## What I Learned
 
