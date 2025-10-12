@@ -1,2 +1,2 @@
 # CKB-LEARNING-TRACK
-A repository for tracking my weekly learning logs, notes, and resources related to CKB
+This repository is all about CKB logs ,notes ,projects ,concepts ,all ckb-links and my weekly learning track about CKB.
