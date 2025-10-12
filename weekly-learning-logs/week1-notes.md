@@ -3,15 +3,19 @@
 **Date:** 16th Oct – 23rd Oct, 2025
 
 ## Task Completed
-<p align="left">
-  <table>
-    <tr>
-      <td style="border: 2px solid #555; padding: 5px;">
-        <img width="1920" height="1080" alt="Screenshot 2025-10-12 215501" src="https://github.com/user-attachments/assets/82b2ef62-b753-4fc3-a2bd-59b3eb1c2952" alt="Description" style="display:block;margin:auto;width:75%;"/>
-      </td>
-    </tr>
-  </table>
-</p>
+<table>
+<tr>
+<td>
+
+<img src="https://github.com/user-attachments/assets/82b2ef62-b753-4fc3-a2bd-59b3eb1c2952" alt="Screenshot" width="75%">
+
+<br>
+
+**1. [Basic Theory Course on CKB Academy](https://academy.ckb.dev/courses/basic-theory)**
+
+</td>
+</tr>
+</table>
 
 ## What I Learned
 
