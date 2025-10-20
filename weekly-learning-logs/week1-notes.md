@@ -1,6 +1,6 @@
 # Week 01: Nervos Blockchain Fundamentals
 
-**Date:** 16th Oct – 23rd Oct, 2025
+**Date:** 6th Oct – 12th Oct, 2025
 
 ## Task Completed
 <table>
