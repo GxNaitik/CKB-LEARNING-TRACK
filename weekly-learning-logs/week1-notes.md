@@ -1,7 +1,5 @@
 # Week 01: Nervos Blockchain Fundamentals
 
-**Date:** 6th Oct – 12th Oct, 2025
-
 ## Task Completed
 <table>
 <tr>
@@ -40,3 +38,5 @@
 - The CKB virtual machine (CKB-VM) lets developers run smart contracts efficiently.
 - NC-MAX consensus boosts throughput without sacrificing security.
 - offCKB makes it easier to get a local development environment up and running quickly.
+
+                                                     Date: 6th Oct – 12th Oct, 2025
