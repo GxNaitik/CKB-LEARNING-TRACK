@@ -31,26 +31,12 @@ The Cell Model is a flexible smart contract system inspired by Bitcoin’s UTXO 
 
 ---
 
-## ⚙️ Step-by-Step Setup
-
-### 1️. Clone the Developer Training Course
+## . Clone the Developer Training Course
 
 git clone https://github.com/jordanmack/developer-training-course.git
 cd developer-training-course
 npm install
 
-### 2️. Explore Repository Structure
-
-developer-training-course/
-├── exercises/
-│   ├── 01-cell-model/
-│   ├── 02-custom-lock/
-│   ├── 03-data-cell/
-│   ├── 04-double-counter/
-│   └── ...
-├── package.json
-├── README.md
-└── tsconfig.json
 
 ## 🧩 Key Concept: The Cell Model
 
@@ -58,4 +44,11 @@ developer-training-course/
 - **Inputs** and **outputs** show how data or tokens move in a transaction.  
 - **Lock scripts** control who can use a cell, and **type scripts** set custom rules.  
 - Every transaction runs and gets checked on-chain inside the **CKB-VM**.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/90a999c4-6140-4c5c-8f73-ce0133aee648" width="49%" alt="Tippy Devnet Screenshot" />
+  <img src="https://github.com/user-attachments/assets/452ba918-0b03-416b-832b-b57546375ece" width="49%" alt="VS Code Developer Training Course Screenshot" />
+</p>
+
+
 
