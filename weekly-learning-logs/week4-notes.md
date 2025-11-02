@@ -1,4 +1,4 @@
-# 🧱 CKB Learning Track — Week 4  
+# 🧠 CKB Learning Track — Week 4  
 ### 🗓️ Focus: Developer Training Course Setup & Devnet Configuration  
 
 ---
@@ -10,7 +10,7 @@ The Cell Model is a flexible smart contract system inspired by Bitcoin’s UTXO 
 
 ---
 
-## 🧠 What I Learned  
+##  What I Learned  
 - Understood the **Cell Model**, which represents assets and contracts as cells.  
 - Learned about **Nervos Layer 1** vs **Godwoken Layer 2 (EVM-compatible)**.  
 - Explored **developer-training-course** structure and examples.  
@@ -51,4 +51,5 @@ npm install
 </p>
 
 
+                                                         Date: 27th Oct - 2nd Nov ,2025
 
