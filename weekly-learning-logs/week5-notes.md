@@ -1,5 +1,4 @@
 ## 🗓️ Week 04 — *CKB Devnet Setup + Rust Practice*  
-**Date:** *15th – 22nd Oct, 2025*
 
 ---
 
