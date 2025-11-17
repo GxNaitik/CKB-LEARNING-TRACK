@@ -1,3 +1,4 @@
+
 ## Week 06 
 
 ### Tasks Completed
@@ -86,3 +87,5 @@ printJson(tx);
 CkbService service = CkbService.getInstance(network);
 byte[] hash = service.sendTransaction(tx);
 System.out.println(bytesToHex(hash));
+
+---
