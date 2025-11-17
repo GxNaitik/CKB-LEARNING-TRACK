@@ -43,13 +43,13 @@ Learned how to generate keys, create a testnet address, receive CKBytes, constru
 <table style="width:100%; text-align:center;">
 <tr>
   <td style="width:33.3%; vertical-align:top; text-align:center;">
-    <img src="<!-- ADD YOUR SCREENSHOT LINK HERE -->" alt="" width="100%">
+    <img src="https://github.com/user-attachments/assets/e391a926-09b5-44f0-a660-635e24df0186" width="100%">
   </td>
   <td style="width:33.3%; vertical-align:top; text-align:center;">
-    <img src="<<https://github.com/user-attachments/assets/e2fa568c-d9b4-4978-993d-141ac5b40999>" alt="" width="100%">
+    <img src="https://github.com/user-attachments/assets/e2fa568c-d9b4-4978-993d-141ac5b40999" width="100%">
   </td>
   <td style="width:33.3%; vertical-align:top; text-align:center;">
-    <img src="<!-- ADD YOUR SCREENSHOT LINK HERE -->" alt="" width="100%">
+    <img src="https://github.com/user-attachments/assets/1b482c28-c581-402b-8e5c-70625f07a309" alt="" width="100%">
   </td>
 </tr>
 </table>
