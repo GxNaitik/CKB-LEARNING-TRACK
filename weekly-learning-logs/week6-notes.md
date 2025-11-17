@@ -88,4 +88,9 @@ CkbService service = CkbService.getInstance(network);
 byte[] hash = service.sendTransaction(tx);
 System.out.println(bytesToHex(hash));
 
----
+
+
+
+
+
+                                                 Date: 6th Oct – 12th Oct, 2025
