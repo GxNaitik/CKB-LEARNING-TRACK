@@ -65,7 +65,83 @@ Process:
 3. Mint NFTs using JavaScript code  
 4. Broadcast transaction
 
-Example (simplified):
-```js
-const tx = await cota.mint({ cota_id, receivers });
+## 🛠️ 3. Tools I Learned About
+
+### 🟣 **Imagination.to**
+- A no-code NFT creator for **Spore NFTs**  
+- Fully on-chain image & metadata storage  
+- Very simple UI  
+- Best for beginners  
+
+---
+
+### 🟢 **Omiga.to**
+A CKB asset explorer & wallet that lets you view:
+
+- CKB tokens  
+- NFTs (Spore + COTA)  
+- On-chain cells  
+- Useful for confirming NFT minting  
+
+---
+
+### 🟠 **CoTA SDK**
+- A JavaScript SDK for minting **CoTA NFTs**  
+- Great for developers building NFT platforms or applications  
+
+---
+
+## 🎯 4. Key Concepts I Understood
+
+### **Cells**
+- The fundamental storage structure in CKB  
+- NFTs = customized cells with lock scripts + data  
+
+### **On-chain vs Off-chain Storage**
+- **Spore** → everything stored fully on-chain  
+- **CoTA** → proofs stored on-chain, metadata stored off-chain  
+
+### **Lock Script**
+- Ensures NFT ownership  
+- Only the owner can update or transfer the cell  
+
+### **Capacity**
+- Storage cost on CKB  
+- Larger NFT files require more capacity  
+
+---
+
+## 🧠 5. Why NFTs on CKB Are Unique
+
+- Built on first-principles using the **Cell Model**  
+- Not restricted to Ethereum-style ERC-721 standards  
+- Extremely flexible NFT architecture:
+  - Store entire image on-chain  
+  - Or use compact off-chain proofs  
+  - Or attach custom validation logic  
+- CKB is one of the most flexible Layer 1s for smart assets  
+
+---
+
+## 📌 6. What I Can Now Do
+
+By the end of Week 9, I can:
+
+✔ Understand the architecture of NFTs on CKB  
+✔ Explain **Spore vs CoTA** differences  
+✔ Use Imagination.to to mint fully on-chain NFTs  
+✔ View minted NFTs in Omiga.to  
+✔ Understand the basic **CoTA minting flow** using the SDK  
+✔ Explain how NFTs exist as **cells** on CKB  
+
+---
+
+## 🔗 References
+
+- **Imagination.to** – https://www.imagination.to  
+- **CoTA Protocol** – https://github.com/nervina-labs/cota-sdk  
+- **Omiga.to** – https://www.omiga.to  
+- **CKB Documentation** – https://docs.nervos.org  
+
+---
 
