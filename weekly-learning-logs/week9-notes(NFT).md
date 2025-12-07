@@ -141,5 +141,6 @@ By the end of Week 9, I can:
 - **Imagination.to** – https://www.imagination.to  
 - **CoTA Protocol** – https://github.com/nervina-labs/cota-sdk  
 - **Omiga.to** – https://www.omiga.to  
-- **CKB Documentation** – https://docs.nervos.org  
+- **CKB Documentation** – https://docs.nervos.org
 
+---
