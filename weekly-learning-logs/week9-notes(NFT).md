@@ -144,3 +144,5 @@ By the end of Week 9, I can:
 - **CKB Documentation** – https://docs.nervos.org
 
 ---
+
+                                                **Date:** 1st Dec - 7th Dec, 2025
