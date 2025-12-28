@@ -256,53 +256,41 @@ export function AppWithCcc() {
     })();
   }, [signer, lastTxHash]);
 
+  // API base URL from environment variable
+  const API_BASE = import.meta.env.VITE_API_BASE || '';
+
   useEffect(() => {
     (async () => {
-      let respStatus = 0;
+      // Skip if no API base URL is set (e.g., in development with local backend)
+      if (!API_BASE) {
+        console.log('No API base URL set, using default game address');
+        return;
+      }
+
       try {
-        const payoutApiKey = import.meta.env.VITE_PAYOUT_API_KEY;
-        const resp = await fetch('/api/house', {
-          headers: {
-            ...(payoutApiKey ? { 'x-api-key': payoutApiKey } : {}),
-          },
-        });
-        respStatus = resp.status;
-
-        // Check if response is JSON before parsing
-        const contentType = resp.headers.get('content-type');
-        if (!contentType || !contentType.includes('application/json')) {
-          if (resp.status === 404) {
-            console.log('House API not found, using default game address');
-            return; // Will use the default game address from environment variable
-          }
-          const text = await resp.text();
-          throw new Error(`Unexpected response format: ${text.substring(0, 100)}...`);
-        }
-
-        const json = (await resp.json()) as { address?: string; error?: string };
+        const resp = await fetch(`${API_BASE}/api/house`);
 
         if (!resp.ok) {
-          throw new Error(json.error || 'Failed to fetch /api/house');
+          throw new Error(`HTTP error! status: ${resp.status}`);
         }
 
+        const json = await resp.json();
+        
         if (typeof json.address === 'string' && json.address.startsWith('ckt1')) {
           setHouseAddress(json.address);
           setHouseAddressError('');
+          console.log('Using house address from API:', json.address);
         } else {
-          throw new Error('Invalid house address returned by backend');
+          throw new Error('Invalid house address format from backend');
         }
       } catch (e) {
         const msg = e instanceof Error ? e.message : String(e);
-        // Don't fail validation if backend is not available (common on static deploy)
-        if (msg.includes('fetch failed') || msg.includes('Failed to fetch') || respStatus === 404) {
-          setHouseAddressError('');
-        } else {
-          setHouseAddress('');
-          setHouseAddressError(msg);
-        }
+        console.warn('Failed to fetch house address, using default:', msg);
+        // Silently fall back to default address
+        setHouseAddressError('');
       }
     })();
-  }, []);
+  }, [API_BASE]);
 
   useEffect(() => {
     (async () => {

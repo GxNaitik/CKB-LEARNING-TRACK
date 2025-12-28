@@ -174,11 +174,21 @@ export function SpinWheel({
                 onWin(walletAddress ?? '');
 
                 try {
+                    const API_BASE = import.meta.env.VITE_API_BASE || '';
                     const payoutApiKey = import.meta.env.VITE_PAYOUT_API_KEY;
-                    const resp = await fetch('/api/payout', {
+                    
+                    // Skip payout if no API base URL is set
+                    if (!API_BASE) {
+                        console.log('No API base URL set, skipping payout');
+                        setPayoutAmountCkb(result.value);
+                        setPayoutTxHash('demo-mode');
+                        return;
+                    }
+
+                    const resp = await fetch(`${API_BASE}/api/payout`, {
                         method: 'POST',
                         headers: {
-                            'content-type': 'application/json',
+                            'Content-Type': 'application/json',
                             ...(payoutApiKey ? { 'x-api-key': payoutApiKey } : {}),
                         },
                         body: JSON.stringify({
@@ -188,34 +198,24 @@ export function SpinWheel({
                         }),
                     });
 
-                    // Check if response is JSON before parsing
-                    const contentType = resp.headers.get('content-type');
-                    if (!contentType || !contentType.includes('application/json')) {
-                        const text = await resp.text();
-                        if (resp.status === 404) {
-                            throw new Error('The payout service is not available in this demo. The backend server is required for real payouts.');
-                        }
-                        throw new Error(`Unexpected response format: ${text.substring(0, 100)}...`);
-                    }
-
-                    const json = (await resp.json()) as {
-                        payoutTxHash?: string;
-                        amountCkb?: number;
-                        error?: string;
-                        shortfallCkb?: number;
-                        houseAddress?: string;
-                        houseBalanceCkb?: string;
-                        requestedAmountCkb?: number;
-                        requiredPayoutCkb?: number;
-                    };
                     if (!resp.ok) {
-                        if (typeof json.shortfallCkb === 'number') {
-                            const bal = typeof json.houseBalanceCkb === 'string' ? json.houseBalanceCkb : undefined;
-                            const houseAddr = typeof json.houseAddress === 'string' ? json.houseAddress : undefined;
-                            const requested = typeof json.requestedAmountCkb === 'number' ? json.requestedAmountCkb : undefined;
-                            const required = typeof json.requiredPayoutCkb === 'number' ? json.requiredPayoutCkb : undefined;
+                        // Try to parse error response as JSON
+                        let errorData;
+                        try {
+                            errorData = await resp.json();
+                        } catch (e) {
+                            // If we can't parse as JSON, just use the status text
+                            throw new Error(`Payout failed with status ${resp.status}: ${resp.statusText}`);
+                        }
+
+                        // Handle underfunded wallet case
+                        if (typeof errorData.shortfallCkb === 'number') {
+                            const bal = typeof errorData.houseBalanceCkb === 'string' ? errorData.houseBalanceCkb : undefined;
+                            const houseAddr = typeof errorData.houseAddress === 'string' ? errorData.houseAddress : undefined;
+                            const requested = typeof errorData.requestedAmountCkb === 'number' ? errorData.requestedAmountCkb : undefined;
+                            const required = typeof errorData.requiredPayoutCkb === 'number' ? errorData.requiredPayoutCkb : undefined;
                             const parts = [
-                                `House wallet is underfunded. Shortfall: ${json.shortfallCkb} CKB.`,
+                                `House wallet is underfunded. Shortfall: ${errorData.shortfallCkb} CKB.`,
                                 requested !== undefined && required !== undefined && required !== requested
                                     ? `Note: payout requires at least ${required} CKB (min cell capacity), even though this win is ${requested} CKB.`
                                     : undefined,
@@ -224,8 +224,14 @@ export function SpinWheel({
                             ].filter(Boolean);
                             throw new Error(parts.join(' '));
                         }
-                        throw new Error(json.error || 'Payout request failed');
+                        
+                        // Handle other error cases
+                        throw new Error(errorData.message || errorData.error || `Payout failed with status ${resp.status}`);
                     }
+
+                    // Handle successful response
+                    const json = await resp.json();
+                    // Handle successful payout
                     if (json.payoutTxHash) {
                         setPayoutTxHash(json.payoutTxHash);
                     }
