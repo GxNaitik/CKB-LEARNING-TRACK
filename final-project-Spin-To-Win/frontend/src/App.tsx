@@ -4,7 +4,7 @@ import { SpinWheel } from './components/SpinWheel';
 import { useEffect, useMemo, useState } from 'react';
 
 // Game Address
-const DEFAULT_GAME_ADDRESS = 'ckt1qrejnmlar3r452tcg57gvq8patctcgy8acync0hxfnyka35ywafvkqgjc77j65rdlumdyucxf0zwndff5rv24dp5qq5j8stc';
+const DEFAULT_GAME_ADDRESS = 'ckt1qzda0cr08m85hc8jlnfp3zer7xulejywt49kt2rr0vthywaa50xwsq2dq0e9th5maw4k2vhk7nz4wdydrlq3cugzmv8pp';
 
 type WalletLike = {
   address?: string;
@@ -280,8 +280,13 @@ export function AppWithCcc() {
         }
       } catch (e) {
         const msg = e instanceof Error ? e.message : String(e);
-        setHouseAddress('');
-        setHouseAddressError(msg);
+        // Don't fail validation if backend is not available (common on static deploy)
+        if (msg.includes('fetch failed') || msg.includes('Failed to fetch')) {
+          setHouseAddressError('');
+        } else {
+          setHouseAddress('');
+          setHouseAddressError(msg);
+        }
       }
     })();
   }, []);
