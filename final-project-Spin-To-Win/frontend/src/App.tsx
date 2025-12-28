@@ -268,7 +268,14 @@ export function AppWithCcc() {
       }
 
       try {
-        const resp = await fetch(`${API_BASE}/api/house`);
+        const headers: HeadersInit = {};
+        const apiKey = import.meta.env.VITE_PAYOUT_API_KEY;
+
+        if (apiKey) {
+          headers['x-api-key'] = apiKey;
+        }
+
+        const resp = await fetch(`${API_BASE}/api/house`, { headers });
 
         if (!resp.ok) {
           throw new Error(`HTTP error! status: ${resp.status}`);
@@ -297,17 +304,17 @@ export function AppWithCcc() {
       try {
         console.log('Validating address:', gameAddress);
         console.log('Client:', client);
-        
+
         // Basic format check first
         if (!gameAddress || !gameAddress.startsWith('ckt1')) {
           throw new Error('Address does not start with ckt1');
         }
-        
+
         // Try full validation if client is available
         if (client) {
           await ccc.Address.fromString(gameAddress, client);
         }
-        
+
         console.log('Address validation passed');
         setGameAddressValid(true);
       } catch (e) {
