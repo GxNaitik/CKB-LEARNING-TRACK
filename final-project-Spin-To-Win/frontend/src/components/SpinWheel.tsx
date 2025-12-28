@@ -187,6 +187,17 @@ export function SpinWheel({
                             betTxHash: txHash,
                         }),
                     });
+
+                    // Check if response is JSON before parsing
+                    const contentType = resp.headers.get('content-type');
+                    if (!contentType || !contentType.includes('application/json')) {
+                        const text = await resp.text();
+                        if (resp.status === 404) {
+                            throw new Error('The payout service is not available in this demo. The backend server is required for real payouts.');
+                        }
+                        throw new Error(`Unexpected response format: ${text.substring(0, 100)}...`);
+                    }
+
                     const json = (await resp.json()) as {
                         payoutTxHash?: string;
                         amountCkb?: number;
@@ -223,10 +234,10 @@ export function SpinWheel({
                     }
                 } catch (e) {
                     const msg = e instanceof Error ? e.message : String(e);
-                    const isFetchFailed = /fetch failed/i.test(msg);
+                    const isFetchFailed = /fetch failed|Failed to fetch|Unexpected response format|payout service is not available/i.test(msg);
                     setErrorText(
                         isFetchFailed
-                            ? 'Payout failed: Backend not reachable. Start the backend server on http://localhost:8787 (and keep it running), then try again.'
+                            ? 'Payout service is not available in this demo. To test payouts, please run the backend server locally.'
                             : `Payout failed: ${msg}`,
                     );
                 }

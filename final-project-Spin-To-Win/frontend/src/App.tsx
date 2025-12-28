@@ -268,6 +268,17 @@ export function AppWithCcc() {
         });
         respStatus = resp.status;
 
+        // Check if response is JSON before parsing
+        const contentType = resp.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+          if (resp.status === 404) {
+            console.log('House API not found, using default game address');
+            return; // Will use the default game address from environment variable
+          }
+          const text = await resp.text();
+          throw new Error(`Unexpected response format: ${text.substring(0, 100)}...`);
+        }
+
         const json = (await resp.json()) as { address?: string; error?: string };
 
         if (!resp.ok) {
