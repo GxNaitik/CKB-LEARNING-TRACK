@@ -294,9 +294,23 @@ export function AppWithCcc() {
   useEffect(() => {
     (async () => {
       try {
-        await ccc.Address.fromString(gameAddress, client);
+        console.log('Validating address:', gameAddress);
+        console.log('Client:', client);
+        
+        // Basic format check first
+        if (!gameAddress || !gameAddress.startsWith('ckt1')) {
+          throw new Error('Address does not start with ckt1');
+        }
+        
+        // Try full validation if client is available
+        if (client) {
+          await ccc.Address.fromString(gameAddress, client);
+        }
+        
+        console.log('Address validation passed');
         setGameAddressValid(true);
-      } catch {
+      } catch (e) {
+        console.error('Address validation failed:', e);
         setGameAddressValid(false);
       }
     })();
