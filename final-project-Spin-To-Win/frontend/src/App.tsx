@@ -258,6 +258,7 @@ export function AppWithCcc() {
 
   useEffect(() => {
     (async () => {
+      let respStatus = 0;
       try {
         const payoutApiKey = import.meta.env.VITE_PAYOUT_API_KEY;
         const resp = await fetch('/api/house', {
@@ -265,6 +266,7 @@ export function AppWithCcc() {
             ...(payoutApiKey ? { 'x-api-key': payoutApiKey } : {}),
           },
         });
+        respStatus = resp.status;
 
         const json = (await resp.json()) as { address?: string; error?: string };
 
@@ -281,7 +283,7 @@ export function AppWithCcc() {
       } catch (e) {
         const msg = e instanceof Error ? e.message : String(e);
         // Don't fail validation if backend is not available (common on static deploy)
-        if (msg.includes('fetch failed') || msg.includes('Failed to fetch')) {
+        if (msg.includes('fetch failed') || msg.includes('Failed to fetch') || respStatus === 404) {
           setHouseAddressError('');
         } else {
           setHouseAddress('');
