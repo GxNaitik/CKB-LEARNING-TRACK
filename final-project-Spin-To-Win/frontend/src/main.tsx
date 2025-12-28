@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ccc } from '@ckb-ccc/connector-react';
-import App, { AppWithCcc } from './App.tsx';
+import { AppWithCcc } from './App.tsx';
 import './index.css';
 
 class RootErrorBoundary extends React.Component<
@@ -27,7 +27,7 @@ class RootErrorBoundary extends React.Component<
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RootErrorBoundary fallback={<App />}>
+    <RootErrorBoundary fallback={<AppWithCcc />}>
       <ccc.Provider>
         <AppWithCcc />
       </ccc.Provider>
