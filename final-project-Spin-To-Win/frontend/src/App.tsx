@@ -4,7 +4,7 @@ import { SpinWheel } from './components/SpinWheel';
 import { useEffect, useMemo, useState } from 'react';
 
 // Game Address
-const DEFAULT_GAME_ADDRESS = '';
+const DEFAULT_GAME_ADDRESS = 'ckt1qrejnmlar3r452tcg57gvq8patctcgy8acync0hxfnyka35ywafvkqgjc77j65rdlumdyucxf0zwndff5rv24dp5qq5j8stc';
 
 type WalletLike = {
   address?: string;
