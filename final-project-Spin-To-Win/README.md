@@ -233,7 +233,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For support and questions:
 - Create an issue on GitHub
-- Join our Discord community - (https://discord.gg/yAd9XXBKSf)
+- Join our Discord community - [DISCORD-CKB-SpinToWin](https://discord.gg/yAd9XXBKSf)
 
 ---
 
